@@ -24,14 +24,14 @@ public class FileChanger {
             System.out.println("Monitoring demo.txt for changes...");
 
             while (true){
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 if (path.toFile().lastModified() != lastModified){
                     System.out.println("File has changed. TIME: " + new java.util.Date(path.toFile().lastModified()));
                     lastModified = path.toFile().lastModified();
+                }
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         });
